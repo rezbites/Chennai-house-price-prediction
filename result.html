@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .result {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .prediction {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .details {
+            margin-top: 20px;
+        }
+        .back-button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .back-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prediction Result</h1>
+    <div class="result">
+        <div class="prediction">
+            Predicted Price: <strong>{{ prediction }}</strong>
+        </div>
+        <div class="details">
+            <h3>Property Details:</h3>
+            <p>Area: {{ area }}</p>
+            <p>Square Feet: {{ sqft }}</p>
+            <p>Bedrooms: {{ bedrooms }}</p>
+            <p>Bathrooms: {{ bathrooms }}</p>
+            <p>Building Type: {{ buildtype }}</p>
+        </div>
+    </div>
+    <a href="{{ url_for('index') }}" class="back-button">Make Another Prediction</a>
+</body>
+</html>

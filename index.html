@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chennai House Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chennai House Price Prediction</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+        <div class="form-group">
+            <label for="area">Area:</label>
+            <select name="area" id="area" required>
+                {% for area in areas %}
+                <option value="{{ area }}">{{ area }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="buildtype">Building Type:</label>
+            <select name="buildtype" id="buildtype" required>
+                {% for type in buildtypes %}
+                <option value="{{ type }}">{{ type }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="int_sqft">Interior Square Feet:</label>
+            <input type="number" id="int_sqft" name="int_sqft" required min="100" step="1">
+        </div>
+
+        <div class="form-group">
+            <label for="n_bedroom">Number of Bedrooms:</label>
+            <input type="number" id="n_bedroom" name="n_bedroom" required min="1" max="10">
+        </div>
+
+        <div class="form-group">
+            <label for="n_bathroom">Number of Bathrooms:</label>
+            <input type="number" id="n_bathroom" name="n_bathroom" required min="1" max="10">
+        </div>
+
+        <button type="submit">Predict Price</button>
+    </form>
+</body>
+</html>
